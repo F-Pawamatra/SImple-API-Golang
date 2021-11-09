@@ -1,4 +1,4 @@
-## Initialization
+# Initialization
 Run 
 ```bash
 go mod latihanJwt
