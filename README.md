@@ -1,5 +1,3 @@
-# Simple-JWT-Golang
-
 ## Initialization
 Run 
 ```bash
