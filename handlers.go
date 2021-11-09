@@ -136,24 +136,6 @@ func GetData(NoppbbLogin string, w http.ResponseWriter,) {
 		log.Panic(err)
 	}
 
-	// // Migrate the schema
-	// db.AutoMigrate(&DataPbb{}, &Data{})
-
-	// // Create Items
-	// for index := range dataPbbs {
-	//     db.Create(&dataPbbs[index])
-	// }
-
-	// for index := range datas {
-	//     db.Create(&datas[index])
-	// }
-
-	// Query with joins
-	// rows, err := db.Table("data").
-	// 	Joins("Join data_pbb on data_pbb.id_noppbb = data.noppbb").
-	// 	Select("data.*" +
-	// 		", data_pbb.*").Rows()
-
 	rows, err := db.Raw(`select * from "data" d inner join data_pbb dp on dp.id_noppbb = d.noppbb where d.noppbb = ?`, NoppbbLogin).Rows()
 	
 	if err != nil {
